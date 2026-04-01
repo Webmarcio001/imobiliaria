@@ -1,0 +1,32 @@
+<h1>Painel Admin</h1>
+
+<a href="/cadastrar">Cadastrar Imóvel</a> |
+<a href="/dashboard">Dashboard</a> |
+<a href="/pdf">Gerar PDF</a> |
+<a href="/logout">Sair</a>
+
+<table border="1">
+<tr>
+    <th>ID</th>
+    <th>Tipo</th>
+    <th>Endereço</th>
+    <th>Preço</th>
+    <th>Status</th>
+    <th>Ação</th>
+</tr>
+
+{% for im in imoveis %}
+<tr>
+    <td>{{ im[0] }}</td>
+    <td>{{ im[1] }}</td>
+    <td>{{ im[2] }}</td>
+    <td>{{ im[3] }}</td>
+    <td>{{ im[6] }}</td>
+    <td>
+        {% if im[6] != "Vendido" %}
+        <a href="/vender/{{ im[0] }}">Vender</a>
+        {% endif %}
+    </td>
+</tr>
+{% endfor %}
+</table>
